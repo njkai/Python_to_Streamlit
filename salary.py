@@ -3,10 +3,8 @@ import polars as pl
 import pandas as pd
 import altair as alt
 
-df = (pl.read_csv('~/Downloads/IT_Salary_Survey_EU_2020.csv', has_header=True, dtypes={'Have you been forced to have a shorter working week (Kurzarbeit)? If yes / how many hours per week':pl.Float32}))
-    
+df = (pl.read_csv('IT_Salary_Survey_EU_2020.csv', has_header=True, dtypes={'Have you been forced to have a shorter working week (Kurzarbeit)? If yes / how many hours per week':pl.Float32}))
 df2 = df.select(["Age","Gender","Total years of experience"]).filter(pl.col("Age").is_not_null()).filter(pl.col("Total years of experience").is_not_null()).filter(pl.col("Gender").is_not_null())
-
 df3 = df2.select("Age").unique().to_pandas().sort_values(by=['Age'])
 
 # sb=st.sidebar.selectbox('How old?', (df3['Age']))
