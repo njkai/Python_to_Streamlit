@@ -42,3 +42,6 @@ line2=alt.Chart(df2, width=860).mark_line().encode(
     alt.Y('Total years of experience', aggregate='average', type='quantitative').scale(zero=False, padding=1),
     color='Gender')
 circle2.mark_circle() + line2.mark_line()
+
+if __name__ == "__main__":
+    salary.run(host='0.0.0.0', port='8080')
