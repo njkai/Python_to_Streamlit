@@ -9,11 +9,11 @@ df2 = df.select(["Age","Gender","Total years of experience"]).filter(pl.col("Age
 
 df3 = df2.select("Age").unique().to_pandas().sort_values(by=['Age'])
 
-sb=st.sidebar.selectbox('How old?', (df3['Age']))
-sb
+# sb=st.sidebar.selectbox('How old?', (df3['Age']))
+# sb
 
-sbs=st.sidebar.slider('Select a range of values',20,69)
-sbs
+# sbs=st.sidebar.slider('Select a range of values',20,69)
+# sbs
 
 line=alt.Chart(df2, width=860, height=650).mark_line().encode(
     alt.X('Age').scale(zero=False),
@@ -33,12 +33,12 @@ base = alt.Chart(df,width=1000).encode(
     text='count()')
 base.mark_bar(color='blue') + base.mark_text(align='center',color='white',size=16)
 
-circle=alt.Chart(df2,width=860).mark_circle().encode(
+circle2=alt.Chart(df2,width=860).mark_circle().encode(
     alt.X('Age').scale(zero=False),
     alt.Y('Total years of experience'),
     color='Gender')
-line=alt.Chart(df2, width=860).mark_line().encode(
+line2=alt.Chart(df2, width=860).mark_line().encode(
     alt.X('Age').scale(zero=False),
     alt.Y('Total years of experience', aggregate='average', type='quantitative').scale(zero=False, padding=1),
     color='Gender')
-circle.mark_circle() + line.mark_line()
+circle2.mark_circle() + line2.mark_line()
