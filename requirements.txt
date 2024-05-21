@@ -1,4 +1,4 @@
-pandas as pd
-numy as np
-altair as alt
-polars as pl
+import pandas as pd
+import numy as np
+import altair as alt
+import polars as pl
