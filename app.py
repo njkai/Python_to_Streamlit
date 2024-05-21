@@ -42,4 +42,4 @@ line2=alt.Chart(df2, width=860).mark_line().encode(
 circle2.mark_circle() + line2.mark_line()
 
 if __name__ == "__main__":
-    salary.run(host='0.0.0.0', port='8080')
+    app.run(host='0.0.0.0', port='8080')
